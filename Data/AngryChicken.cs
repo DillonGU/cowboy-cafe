@@ -7,12 +7,12 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Angry Chicken entree.
     /// </summary>
-    public class AngryChicken
+    public class AngryChicken :Entree
     {
         /// <summary>
         /// gets the price of chicken
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -22,7 +22,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// property gets calories of chicken
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -52,7 +52,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// special instructions for preparing the chicken.
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
