@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Dillon Unruh
+* Class name: Chili Cheese Fries
+* Purpose: Side Class
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

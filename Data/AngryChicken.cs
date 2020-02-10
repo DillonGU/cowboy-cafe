@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Dillon Unruh
+* Class name: Angry Chicken
+* Purpose: Entree Class
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

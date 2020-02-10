@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Dillon Unruh
+* Edited by: Nathan Bean
+* Class name: Side
+* Purpose: Side Class
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

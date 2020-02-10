@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Dillon Unruh
+* Edited by: Nathan Bean
+* Class name: Cowpoke Chili
+* Purpose: Entree Class
+*/
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
