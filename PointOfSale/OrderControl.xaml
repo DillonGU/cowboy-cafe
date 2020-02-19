@@ -21,29 +21,36 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="1">
             <TextBlock TextAlignment="Center">Entree</TextBlock>
-            <Button>Cowpoke Chili</Button>
+            <Button Name ="AddCowpokeChiliButton">Cowpoke Chili</Button>
             <Button Name ="AddTrailBurgerButton">Trail Burger</Button>
-            <Button>Angry Chicken</Button>
-            <Button>Dakota Double Burger</Button>
-            <Button>Texas Triple Burger</Button>
-            <Button>Pecos Pulled Pork</Button>
-            <Button>Rustler Ribs</Button>
+            <Button Name="AddAngryChickenButton">Angry Chicken</Button>
+            <Button Name="AddDakotaDoubleBurgerButton">Dakota Double Burger</Button>
+            <Button Name="AddTexasTripleBurgerButton">Texas Triple Burger</Button>
+            <Button Name="AddPecosPulledPorkButton">Pecos Pulled Pork</Button>
+            <Button Name="AddRustlerRibsButton">Rustler Ribs</Button>
             
         </StackPanel>
         <StackPanel Grid.Column="1">
             <TextBlock TextAlignment="Center">Side</TextBlock>
-            <Button>Baked Beans</Button>
+            <Button Name ="AddBakedBeansButton">Baked Beans</Button>
             <Button>Chili Cheese Fries</Button>
             <Button>Corn Dodgers</Button>
             <Button>Pan DeCampo</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="2">
+            
             <TextBlock TextAlignment="Center">Drinks</TextBlock>
             <Button>Jerked Soda</Button>
             <Button>Cowboy Coffee</Button>
             <Button>Texas Tea</Button>
             <Button>Water</Button>
+        </StackPanel>
+        <StackPanel Grid.Column="3">
+
+            <TextBlock TextAlignment="Center">Order</TextBlock>
+            <ListView Name ="OrderListView"></ListView>
+            
         </StackPanel>
 
     </Grid>
