@@ -59,5 +59,25 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        /// <summary>
+        /// returns the string representation of this object
+        /// </summary>
+        /// <returns>the string describing the cowpoke chili</returns>
+        public override string ToString()
+        {
+            switch (Size)
+            {
+                case Size.Small:
+                    return "Small Baked Beans";
+
+                case Size.Medium:
+                    return "Medium Baked Beans";
+                case Size.Large:
+                    return "Large Baked Beans";
+                default:
+                    throw new NotImplementedException();
+            }
+        }
     }
 }
