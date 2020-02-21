@@ -96,5 +96,26 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+        /// <summary>
+        /// returns the string representation of this object
+        /// </summary>
+        /// <returns>the string describing the Texas Tea</returns>
+        public override string ToString()
+        {
+            if (Size == Size.Small && sweet)
+                return "Small Texas Sweet Tea";
+            else if (Size == Size.Medium && sweet)
+                return "Medium Texas Sweet Tea";
+            else if (Size == Size.Large && sweet)
+                return "Large Texas Sweet Tea";
+            else if (Size == Size.Small && !sweet)
+                return "Small Texas Plain Tea";
+            else if (Size == Size.Medium && !sweet)
+                return "Medium Texas Plain Tea";
+            else if (Size == Size.Large && !sweet)
+                return "Large Texas Plain Tea";
+            else
+                throw new NotImplementedException();
+        }
     }
 }

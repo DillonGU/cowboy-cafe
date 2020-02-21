@@ -50,6 +50,25 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+        /// <summary>
+        /// returns the string representation of this object
+        /// </summary>
+        /// <returns>the string describing the Water</returns>
+        public override string ToString()
+        {
+            switch (Size)
+            {
+                case Size.Small:
+                    return "Small Water";
 
+                case Size.Medium:
+                    return "Medium Water";
+                case Size.Large:
+                    return "Large Water";
+                default:
+                    throw new NotImplementedException();
+
+            }
+        }
     }
 }

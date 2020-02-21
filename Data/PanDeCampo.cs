@@ -58,6 +58,25 @@ namespace CowboyCafe.Data
                 }
             }
         }
+        /// <summary>
+        /// returns the string representation of this object
+        /// </summary>
+        /// <returns>the string describing the Pan DeCampo</returns>
+        public override string ToString()
+        {
+            switch (Size)
+            {
+                case Size.Small:
+                    return "Small Pan de Campo";
+
+                case Size.Medium:
+                    return "Medium Pan de Campo";
+                case Size.Large:
+                    return "Large Pan de Campo";
+                default:
+                    throw new NotImplementedException();
+            }
+        }
     }
 }
 

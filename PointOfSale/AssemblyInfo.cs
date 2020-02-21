@@ -1,3 +1,8 @@
+/*
+* Author: Dillon Unruh
+* Class name: Assembly Info
+* Purpose: AssemblyInfo Class
+*/
 using System.Windows;
 
 [assembly: ThemeInfo(

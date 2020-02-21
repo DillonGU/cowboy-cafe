@@ -73,6 +73,46 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
-        
+        /// <summary>
+        /// returns the string representation of this object
+        /// </summary>
+        /// <returns>the string describing the jerked soda</returns>
+        public override string ToString()
+        {
+            if (Size == Size.Small && Flavor == SodaFlavor.CreamSoda)
+                return "Small Cream Soda Jerked Soda";
+            if (Size == Size.Small && Flavor == SodaFlavor.BirchBeer)
+                return "Small Birch Beer Jerked Soda";
+            if (Size == Size.Small && Flavor == SodaFlavor.OrangeSoda)
+                return "Small Orange Soda Jerked Soda";
+            if (Size == Size.Small && Flavor == SodaFlavor.RootBeer)
+                return "Small Root Beer Jerked Soda";
+            if (Size == Size.Small && Flavor == SodaFlavor.Sarsparilla)
+                return "Small Sarsparilla Jerked Soda";
+            if (Size == Size.Medium && Flavor == SodaFlavor.CreamSoda)
+                return "Medium Cream Soda Jerked Soda";
+            if (Size == Size.Medium && Flavor == SodaFlavor.BirchBeer)
+                return "Medium Birch Beer Jerked Soda";
+            if (Size == Size.Medium && Flavor == SodaFlavor.OrangeSoda)
+                return "Medium Orange Soda Jerked Soda";
+            if (Size == Size.Medium && Flavor == SodaFlavor.RootBeer)
+                return "Medium Root Beer Jerked Soda";
+            if (Size == Size.Medium && Flavor == SodaFlavor.Sarsparilla)
+                return "Medium Sarsparilla Jerked Soda";
+            if (Size == Size.Large && Flavor == SodaFlavor.CreamSoda)
+                return "Large Cream Soda Jerked Soda";
+            if (Size == Size.Large && Flavor == SodaFlavor.BirchBeer)
+                return "Large Birch Beer Jerked Soda";
+            if (Size == Size.Large && Flavor == SodaFlavor.OrangeSoda)
+                return "Large Orange Soda Jerked Soda";
+            if (Size == Size.Large && Flavor == SodaFlavor.RootBeer)
+                return "Large Root Beer Jerked Soda";
+            if (Size == Size.Large && Flavor == SodaFlavor.Sarsparilla)
+                return "Large Sarsparilla Jerked Soda";
+            else
+                throw new NotImplementedException();
+
+        }
+
     }
 }

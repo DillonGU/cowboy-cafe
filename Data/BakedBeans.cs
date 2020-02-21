@@ -63,7 +63,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// returns the string representation of this object
         /// </summary>
-        /// <returns>the string describing the cowpoke chili</returns>
+        /// <returns>the string describing the baked beans</returns>
         public override string ToString()
         {
             switch (Size)

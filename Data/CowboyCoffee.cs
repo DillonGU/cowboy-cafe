@@ -106,5 +106,27 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+        /// <summary>
+        /// returns the string representation of this object
+        /// </summary>
+        /// <returns>the string describing the cowboy coffee</returns>
+        public override string ToString()
+        {
+            if (Size == Size.Small && decaf)
+                return "Small Decaf Cowboy Coffee";
+            if (Size == Size.Medium && decaf)
+                return "Medium Decaf Cowboy Coffee";
+            if (Size == Size.Large && decaf)
+                return "Large Decaf Cowboy Coffee";
+            if (Size == Size.Small && !decaf)
+                return "Small Cowboy Coffee";
+            if (Size == Size.Medium && !decaf)
+                return "Medium Cowboy Coffee";
+            if (Size == Size.Large && !decaf)
+                return "Large Cowboy Coffee";
+            else
+                throw new NotImplementedException();
+
+        }
     }
 }
