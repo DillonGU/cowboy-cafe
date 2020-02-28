@@ -26,7 +26,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// abstract list that hold the special instructions for the entrees.
         /// </summary>
-        public abstract List<string> SpecialInstructions { get; }
+        public abstract List<string> SpecialInstructions { get;}
         /// <summary>
         /// Size of type Size that will get and set the size of the drink
         /// </summary>

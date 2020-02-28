@@ -24,12 +24,14 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        public Order OrderList = new Order();
         /// <summary>
         /// Order control control
         /// </summary>
         public OrderControl()
         {
             InitializeComponent();
+            this.DataContext = OrderList;
             AddCowpokeChiliButton.Click += OnAddCowPokeChiliButtonClicked;
             AddTrailBurgerButton.Click += OnAddTrailBurgerButtonClicked;
             AddAngryChickenButton.Click += OnAddAddAngryChickenButtonClicked;
@@ -53,7 +55,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddCowPokeChiliButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new CowpokeChili());
+            OrderList.Add(new CowpokeChili());
         }
         /// <summary>
         /// executes a new trail burger to the list
@@ -62,7 +64,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddTrailBurgerButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new TrailBurger());
+            OrderList.Add(new TrailBurger());
         }
         /// <summary>
         /// executes a new angry chicken to the list
@@ -71,7 +73,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddAddAngryChickenButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new AngryChicken());
+            OrderList.Add(new AngryChicken());
         }
         /// <summary>
         /// executes a new dakota double burger to the list
@@ -80,7 +82,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddDakotaDoubleBurgerButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new DakotaDoubleBurger());
+            //OrderList.Add(new DakotaDoubleBurger());
         }
         /// <summary>
         /// executes a new triple burger to the list
@@ -89,7 +91,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddTexasTripleBurgerButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new TexasTripleBurger());
+            OrderList.Add(new TexasTripleBurger());
         }
         /// <summary>
         /// executes a new pulled pork to the list
@@ -98,7 +100,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddPecosPulledPorkButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new PecosPulledPork());
+            //OrderList.Add(new PecosPulledPork());
         }
         /// <summary>
         /// executes a new rustlers ribs to the list
@@ -107,7 +109,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddRustlerRibsButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new RustlersRibs());
+            OrderList.Add(new RustlersRibs());
         }
         /// <summary>
         /// executes a new baked beans to the list
@@ -116,7 +118,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddBakedBeansButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new BakedBeans());
+            OrderList.Add(new BakedBeans());
         }
         /// <summary>
         /// executes a new chili cheese fries to the list
@@ -125,7 +127,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddChiliCheeseFriesButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new ChiliCheeseFries());
+            OrderList.Add(new ChiliCheeseFries());
         }
         /// <summary>
         /// executes a new corn dodgers to the list
@@ -134,7 +136,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddCornDodgersButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new CornDodgers());
+            OrderList.Add(new CornDodgers());
         }
         /// <summary>
         /// executes a new pan de campo to the list
@@ -143,7 +145,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddPanDeCampoButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new PanDeCampo());
+            OrderList.Add(new PanDeCampo());
         }
         /// <summary>
         /// executes a new cowboy coffee to the list
@@ -152,7 +154,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddCowboyCoffeeButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new CowboyCoffee());
+            OrderList.Add(new CowboyCoffee());
         }
         /// <summary>
         /// executes a new jerked soda to the list
@@ -161,7 +163,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddJerkedSodaButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new JerkedSoda());
+            OrderList.Add(new JerkedSoda());
         }
         /// <summary>
         /// executes a new texas tea to the list
@@ -170,7 +172,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddTexasTeaButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new TexasTea());
+            OrderList.Add(new TexasTea());
         }
         /// <summary>
         /// executes a new water to the list
@@ -179,7 +181,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddWaterButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new Water());
+            OrderList.Add(new Water());
         }
     }
 }

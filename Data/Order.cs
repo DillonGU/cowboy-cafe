@@ -5,38 +5,34 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    public class Order : IOrderItems, INotifyPropertyChanged
+    public class Order :  INotifyPropertyChanged
     {
         private List<IOrderItems> items = new List<IOrderItems>();
         public IEnumerable<IOrderItems>Items => items.ToArray();
 
-        public double Subtotal 
-        { 
-            get
-            {
-                Price += Price;
-                return Price;
-            }
-        }
+        private double subtotal = 0;
+        public double Subtotal { get { return subtotal; } set { subtotal = value; } }
 
-        public uint OrderNumber { get; }
 
-        public double Price { get; set; }
-
-        public List<string> SpecialInstructions { get; }
+        private uint number = 0;
+        public uint OrderNumber { get { return number++; } }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void Add(IOrderItems item) 
         {
             items.Add(item);
+            Subtotal += item.Price;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
         public void Remove(IOrderItems item) 
         {
             items.Remove(item);
+            Subtotal -= item.Price;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
         

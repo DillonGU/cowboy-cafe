@@ -41,8 +41,8 @@ namespace CowboyCafe.DataTests
         [InlineData(new double[] { -100, -5 })]
         public void SubtotalShouldBeTheSumOfAllAddedItems(double[] prices)
         {
-            var order = new Order();
             double total = 0;
+            var order = new Order();
             foreach(var price in prices)
             {
                 total += price;
