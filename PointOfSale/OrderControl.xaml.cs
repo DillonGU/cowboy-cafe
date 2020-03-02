@@ -82,7 +82,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddDakotaDoubleBurgerButtonClicked(object sender, RoutedEventArgs e)
         {
-            //OrderList.Add(new DakotaDoubleBurger());
+            OrderList.Add(new DakotaDoubleBurger());
         }
         /// <summary>
         /// executes a new triple burger to the list
@@ -100,7 +100,7 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnAddPecosPulledPorkButtonClicked(object sender, RoutedEventArgs e)
         {
-            //OrderList.Add(new PecosPulledPork());
+            OrderList.Add(new PecosPulledPork());
         }
         /// <summary>
         /// executes a new rustlers ribs to the list
