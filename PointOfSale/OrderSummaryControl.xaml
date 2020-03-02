@@ -42,7 +42,7 @@
         </ListBox>
         
         <StackPanel Grid.Row="2">
-            <Label FontSize="25">Subtotal</Label>
+            <Label FontSize="15">Subtotal</Label>
             
             
         </StackPanel>
@@ -51,7 +51,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBlock Text="{Binding Path=Price, StringFormat=c}"/>
+            <TextBlock Text="{Binding Path=Items.Price, StringFormat=c}"/>
         </StackPanel>
                     
         

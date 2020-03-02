@@ -47,6 +47,7 @@ namespace PointOfSale
             AddJerkedSodaButton.Click += OnAddJerkedSodaButtonClicked;
             AddTexasTeaButton.Click += OnAddTexasTeaButtonClicked;
             AddWaterButton.Click += OnAddWaterButtonClicked;
+            
         }
         /// <summary>
         /// executes a new cowpoke chili to the list
@@ -183,5 +184,7 @@ namespace PointOfSale
         {
             OrderList.Add(new Water());
         }
+
+        
     }
 }
