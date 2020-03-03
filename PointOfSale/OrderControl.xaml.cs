@@ -31,12 +31,14 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
+            var order = new Order();
+            this.DataContext = order;
             CancelOrder.Click += OnCancelOrderButtonClicked;
-            //this.DataContext = new OrderSummaryControl();
-            //this.DataContext = new MenuItemSelectionControl();
-            
-            
-            
+            CompleteOrder.Click += OnOrderCompleteButtonClicked;
+
+
+
+
         }
         /// <summary>
         /// executes a new cowpoke chili to the list
@@ -46,6 +48,11 @@ namespace PointOfSale
         
 
         void OnCancelOrderButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new Order();
+        }
+
+        void OnOrderCompleteButtonClicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
         }
