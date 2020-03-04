@@ -35,11 +35,18 @@ namespace PointOfSale
             this.DataContext = order;
             CancelOrder.Click += OnCancelOrderButtonClicked;
             CompleteOrder.Click += OnOrderCompleteButtonClicked;
-
+            ItemSelection.Click += OnItemSelectionButtonClicked;
 
 
 
         }
+
+        public void SwapScreen(UIElement element)
+        {
+            Container.Child = element;
+        }
+
+
         /// <summary>
         /// executes a new cowpoke chili to the list
         /// </summary>
@@ -55,6 +62,11 @@ namespace PointOfSale
         void OnOrderCompleteButtonClicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
+        }
+
+        void OnItemSelectionButtonClicked(object sender, RoutedEventArgs e)
+        {
+            //this.DataContext = new Order();
         }
 
 

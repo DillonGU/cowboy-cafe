@@ -34,6 +34,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="{Binding}"/>
+                    
 
 
                     </Grid>
@@ -50,9 +51,10 @@
             <TextBlock Text="{Binding Path=Subtotal, StringFormat=c}"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBlock Text="{Binding Path=Items.Price, StringFormat=c}"/>
-        </StackPanel>
+        <ListBox Grid.Row="1" Grid.Column="1">
+            <TextBlock Text="{Binding Path=Price, StringFormat=c}"/>
+            
+        </ListBox>
                     
         
         
