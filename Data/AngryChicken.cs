@@ -42,7 +42,10 @@ namespace CowboyCafe.Data
         public bool Bread
         {
             get { return bread; }
-            set { bread = value; }
+            set {
+                bread = value;
+                NotifyOfPropertyChange("Bread");
+            }
         }
 
         private bool pickle = true;
@@ -52,7 +55,10 @@ namespace CowboyCafe.Data
         public bool Pickle
         {
             get { return pickle; }
-            set { pickle = value; }
+            set {
+                pickle = value;
+                NotifyOfPropertyChange("Pickle");
+            }
         }
         /// <summary>
         /// special instructions for preparing the chicken.

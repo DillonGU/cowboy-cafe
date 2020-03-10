@@ -47,5 +47,13 @@ namespace CowboyCafe.Data
         public abstract uint Calories { get; }
 
         public List<string> SpecialInstructions { get; }
+
+        protected void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+
+        }
     }
 }

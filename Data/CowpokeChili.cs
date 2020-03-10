@@ -52,7 +52,10 @@ namespace CowboyCafe.Data
         public bool GreenOnions
         {
             get { return greenOnions; }
-            set { greenOnions = value; }
+            set {
+                greenOnions = value;
+                NotifyOfPropertyChange("GreenOnions");
+            }
         }
 
         private bool tortillaStrips = true;
@@ -65,7 +68,10 @@ namespace CowboyCafe.Data
         public bool TortillaStrips
         {
             get { return tortillaStrips; }
-            set { tortillaStrips = value; }
+            set {
+                tortillaStrips = value;
+                NotifyOfPropertyChange("TortillaStrips");
+            }
         }
 
         /// <summary>

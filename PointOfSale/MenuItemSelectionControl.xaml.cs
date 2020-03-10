@@ -55,32 +55,37 @@ namespace PointOfSale
                     switch (button.Tag)
                     {
                         case "CowpokeChili":
-                            var item = new CowpokeChili();
-                            var screen = new CustomizeCowpokeChili();
-                            AddItemAndOpenCustomizationScreen(item, screen);
+                            var itemCC = new CowpokeChili();
+                            var screenCPC = new CustomizeCowpokeChili();
+                            AddItemAndOpenCustomizationScreen(itemCC, screenCPC);
                             //screen.DataContext = entree;
                             //order.Add(new CowpokeChili());
                             //orderControl.SwapScreen(screen);
                             break;
                         case "TrailBurger":
-                            order.Add(new TrailBurger());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                             var itemTB = new TrailBurger();
+                             var screenTB = new CustomizeTrailBurger();
+                            AddItemAndOpenCustomizationScreen(itemTB, screenTB);
                             break;
                         case "AngryChicken":
-                            order.Add(new AngryChicken());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                             var itemAC = new AngryChicken();
+                             var screenAC = new CustomizeAngryChicken();
+                            AddItemAndOpenCustomizationScreen(itemAC, screenAC);
                             break;
                         case "DakotaDouble":
-                            order.Add(new DakotaDoubleBurger());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                            var itemDD = new DakotaDoubleBurger();
+                            var screenDD = new CustomizeDakotaDouble();
+                            AddItemAndOpenCustomizationScreen(itemDD, screenDD);
                             break;
                         case "TexasTriple":
-                            order.Add(new TexasTripleBurger());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                            var itemTT = new TexasTripleBurger();
+                            var screenTT = new CustomizeTexasTriple();
+                            AddItemAndOpenCustomizationScreen(itemTT, screenTT);
                             break;
                         case "PecosPork":
-                            order.Add(new PecosPulledPork());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                            var itemPP = new PecosPulledPork();
+                            var screenPP = new CustomizePecosPulledPork();
+                            AddItemAndOpenCustomizationScreen(itemPP, screenPP);
                             break;
                         case "RustlerRibs":
                             order.Add(new RustlersRibs());
