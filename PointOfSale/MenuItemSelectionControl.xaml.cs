@@ -55,9 +55,9 @@ namespace PointOfSale
                     switch (button.Tag)
                     {
                         case "CowpokeChili":
-                            var itemCC = new CowpokeChili();
+                            var itemCPC = new CowpokeChili();
                             var screenCPC = new CustomizeCowpokeChili();
-                            AddItemAndOpenCustomizationScreen(itemCC, screenCPC);
+                            AddItemAndOpenCustomizationScreen(itemCPC, screenCPC);
                             //screen.DataContext = entree;
                             //order.Add(new CowpokeChili());
                             //orderControl.SwapScreen(screen);
@@ -89,39 +89,46 @@ namespace PointOfSale
                             break;
                         case "RustlerRibs":
                             order.Add(new RustlersRibs());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
                             break;
                         case "BakedBeans":
-                            order.Add(new BakedBeans());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                            var itemBB = new BakedBeans();
+                            var screenBB = new CustomizeBakedBeans();
+                            AddItemAndOpenCustomizationScreen(itemBB, screenBB);
                             break;
                         case "ChiliCheeseFries":
-                            order.Add(new ChiliCheeseFries());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                            var itemCCF = new ChiliCheeseFries();
+                            var screenCCF = new CustomizeChiliCheeseFries();
+                            AddItemAndOpenCustomizationScreen(itemCCF, screenCCF);
                             break;
                         case "CornDodgers":
-                            order.Add(new CornDodgers());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                            var itemCD = new CornDodgers();
+                            var screenCD = new CustomizeCornDodgers();
+                            AddItemAndOpenCustomizationScreen(itemCD, screenCD);
                             break;
                         case "PanDeCampo":
-                            order.Add(new PanDeCampo());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                            var itemPD = new PanDeCampo();
+                            var screenPD = new CustomizePanDeCampo();
+                            AddItemAndOpenCustomizationScreen(itemPD, screenPD);
                             break;
                         case "JerkedSoda":
-                            order.Add(new JerkedSoda());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                            var itemJS = new JerkedSoda();
+                            var screenJS = new CustomizeJerkedSoda();
+                            AddItemAndOpenCustomizationScreen(itemJS, screenJS);
                             break;
                         case "CowboyCoffee":
-                            order.Add(new CowboyCoffee());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                            var itemCC = new CowboyCoffee();
+                            var screenCC = new CustomizeCowboyCoffee();
+                            AddItemAndOpenCustomizationScreen(itemCC, screenCC);
                             break;
                         case "TexasTea":
-                            order.Add(new TexasTea());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                            var itemTXT = new TexasTea();
+                            var screenTXT = new CustomizeTexasTea();
+                            AddItemAndOpenCustomizationScreen(itemTXT, screenTXT);
                             break;
                         case "Water":
-                            order.Add(new Water());
-                            //orderControl.SwapScreen(new CustomizeCowpokeChili());
+                            var itemW = new Water();
+                            var screenW = new CustomizeWater();
+                            AddItemAndOpenCustomizationScreen(itemW, screenW);
                             break;
                     }
                 }

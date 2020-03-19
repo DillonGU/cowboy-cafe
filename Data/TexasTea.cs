@@ -24,7 +24,11 @@ namespace CowboyCafe.Data
         public bool Sweet
         {
             get { return sweet; }
-            set { sweet = value; }
+            set
+            {
+                sweet = value;
+                NotifyOfPropertyChange("Sweet");
+            }
         }
         /// <summary>
         /// price of the Texas Tea depending on the size of drink
@@ -79,7 +83,11 @@ namespace CowboyCafe.Data
         public bool Lemon
         {
             get { return lemon; }
-            set { lemon = value; }
+            set
+            {
+                lemon = value;
+                NotifyOfPropertyChange("Lemon");
+            }
         }
         /// <summary>
         /// special instructions with the Texas Tea

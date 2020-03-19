@@ -6,14 +6,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// public abstract drink base class that holds drink properties.
     /// </summary>
-    public abstract class Drink : IOrderItems
+    public abstract class Drink : IOrderItems, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// abstract price property that gets price
         /// </summary>
@@ -41,7 +43,17 @@ namespace CowboyCafe.Data
         public virtual bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set 
+            { 
+                ice = value;
+                NotifyOfPropertyChange("Ice");
+            }
+        }
+
+        protected void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
     }
 }

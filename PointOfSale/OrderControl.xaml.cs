@@ -58,12 +58,14 @@ namespace PointOfSale
         {
             
             this.DataContext = new Order();
-            
+            Container.Child = new MenuItemSelectionControl();
+
         }
 
         void OnOrderCompleteButtonClicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
+            Container.Child = new MenuItemSelectionControl();
         }
 
         void OnItemSelectionButtonClicked(object sender, RoutedEventArgs e)
@@ -71,6 +73,12 @@ namespace PointOfSale
             Container.Child = new MenuItemSelectionControl();
         }
 
-
+        public void ItemChanged()
+        {
+            if(DataContext is Order order)
+            {
+                order.Notify();
+            }
+        }
     }
 }

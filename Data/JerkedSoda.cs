@@ -6,6 +6,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+
 
 namespace CowboyCafe.Data
 {
@@ -57,7 +59,17 @@ namespace CowboyCafe.Data
         /// <summary>
         /// property for the soda flavor get and sets the soda flavor.
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        private SodaFlavor flavor;
+        public SodaFlavor Flavor 
+        { 
+            get=> flavor;
+            set
+            {
+                flavor = value;
+                
+            }
+            
+        }
         /// <summary>
         /// special instructions with the jerked soda
         /// </summary>
@@ -79,8 +91,7 @@ namespace CowboyCafe.Data
         /// <returns>the string describing the jerked soda</returns>
         public override string ToString()
         {
-            if (Size == Size.Small && Flavor == SodaFlavor.CreamSoda)
-                return "Small Cream Soda Jerked Soda";
+            
             if (Size == Size.Small && Flavor == SodaFlavor.BirchBeer)
                 return "Small Birch Beer Jerked Soda";
             if (Size == Size.Small && Flavor == SodaFlavor.OrangeSoda)
@@ -109,6 +120,8 @@ namespace CowboyCafe.Data
                 return "Large Root Beer Jerked Soda";
             if (Size == Size.Large && Flavor == SodaFlavor.Sarsparilla)
                 return "Large Sarsparilla Jerked Soda";
+            if (Size == Size.Small && Flavor == SodaFlavor.CreamSoda)
+                return "Small Cream Soda Jerked Soda";
             else
                 throw new NotImplementedException();
 

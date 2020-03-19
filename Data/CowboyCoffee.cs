@@ -64,7 +64,11 @@ namespace CowboyCafe.Data
         public bool RoomForCream
         {
             get { return roomForCream; }
-            set { roomForCream = value; }
+            set 
+            {
+                roomForCream = value;
+                NotifyOfPropertyChange("RoomForCream");
+            }
         }
         /// <summary>
         /// public bool property that hold whether coffee will be decaf.
@@ -76,7 +80,11 @@ namespace CowboyCafe.Data
         public bool Decaf
         {
             get { return decaf; }
-            set { decaf = value; }
+            set 
+            { 
+                decaf = value;
+                NotifyOfPropertyChange("Decaf");
+            }
         }
         /// <summary>
         /// new bool to hide the true bool of ice
@@ -88,7 +96,11 @@ namespace CowboyCafe.Data
         public override bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set 
+            {
+                ice = value;
+                NotifyOfPropertyChange("Ice");
+            }
         }
         /// <summary>
         /// special instructions with the Cowboy Coffee

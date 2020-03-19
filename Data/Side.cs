@@ -30,9 +30,7 @@ namespace CowboyCafe.Data
             set 
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                
             } 
         }
 
@@ -48,12 +46,12 @@ namespace CowboyCafe.Data
 
         public List<string> SpecialInstructions { get; }
 
-        protected void NotifyOfPropertyChange(string propertyName)
+       /* protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
 
-        }
+        }*/
     }
 }

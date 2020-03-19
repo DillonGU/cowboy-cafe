@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <TextBlock FontSize="30" Text="Customize Angry Chicken!"/>
+        <TextBlock FontSize="30" Text="Customize Pecos Pulled Pork!"/>
         <StackPanel Orientation="Horizontal">
             <CheckBox IsChecked="{Binding Path=Bread}">Bread</CheckBox>
         </StackPanel>
