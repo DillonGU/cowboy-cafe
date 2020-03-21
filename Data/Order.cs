@@ -1,17 +1,30 @@
-﻿using System;
+﻿/*
+* Author: Dillon Unruh
+* Class name: Order Class
+* Purpose: Class that holds the underlying functions of an order.
+*/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// order class 
+    /// </summary>
     public class Order :  INotifyPropertyChanged
     {
         
         private List<IOrderItems> items = new List<IOrderItems>();
+        /// <summary>
+        /// items property that gets items into an array to be processed
+        /// </summary>
         public IEnumerable<IOrderItems>Items => items.ToArray();
 
-        
+        /// <summary>
+        /// subtotal property that calculates the subtotal
+        /// </summary>
         public double Subtotal 
         { 
             get 
@@ -25,19 +38,25 @@ namespace CowboyCafe.Data
             }  
         }
 
-
+        
         private static uint number = 0;
+        /// <summary>
+        /// order number property that increments the order number after an order is complete or cancelled
+        /// </summary>
         public uint OrderNumber { get { return number++; } }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
+        /// <summary>
+        /// adds an item to the list
+        /// </summary>
+        /// <param name="item">selected item</param>
         public void Add(IOrderItems item) 
         {
             if(item is INotifyPropertyChanged notifier)
             {
                 notifier.PropertyChanged += OnItemPropertyChanged;
             }
-            //item += OnItemPropertyChanged;
+            
             items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
@@ -45,10 +64,12 @@ namespace CowboyCafe.Data
 
 
             
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            
         }
-
+        /// <summary>
+        /// removes an item from the list
+        /// </summary>
+        /// <param name="item">selected item</param>
         public void Remove(IOrderItems item) 
         {
             if (item is INotifyPropertyChanged notifier)
@@ -62,10 +83,13 @@ namespace CowboyCafe.Data
 
 
             
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            
         }
-
+        /// <summary>
+        ///  event handler method that changes the items property
+        /// </summary>
+        /// <param name="sender">??</param>
+        /// <param name="e">???</param>
         private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
@@ -74,12 +98,14 @@ namespace CowboyCafe.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             }
         }
-
+        /// <summary>
+        /// invokes a new item adn subtotal on the event of a property changed.
+        /// </summary>
         public void Notify()
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-           // PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SodaFlavor"));
+           
         }
 
         

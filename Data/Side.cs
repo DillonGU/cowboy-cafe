@@ -43,7 +43,9 @@ namespace CowboyCafe.Data
         /// Gets the calories of the entree
         /// </summary>
         public abstract uint Calories { get; }
-
+        /// <summary>
+        /// special instructions here because of inheritance
+        /// </summary>
         public List<string> SpecialInstructions { get; }
 
        /* protected void NotifyOfPropertyChange(string propertyName)

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Dillon Unruh
+* Class name: MenuItemSelectionControl.xaml Class
+* Purpose: Controls the commands of user input.
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,13 +26,19 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public MenuItemSelectionControl()
         {
             InitializeComponent();
 
         }
-
+        /// <summary>
+        /// this helper method add the item to the list and swaps the screen
+        /// </summary>
+        /// <param name="item">item user clicked to be added</param>
+        /// <param name="screen">sreen to be swapped</param>
         void AddItemAndOpenCustomizationScreen(IOrderItems item, FrameworkElement screen)
         {
             var order = DataContext as Order;
@@ -44,7 +55,11 @@ namespace PointOfSale
             }
             order.Add(item);
         }
-
+        /// <summary>
+        /// Depending on the item the user clicks. This action handler adds the item to list, and displays the swapped screen with the menuitem screen so the user can customize.
+        /// </summary>
+        /// <param name="sender">??</param>
+        /// <param name="e">??</param>
         void OnItemAddButtonClicked(object sender, RoutedEventArgs e)
         {
             var orderControl = this.FindAncestor<OrderControl>();
@@ -58,9 +73,6 @@ namespace PointOfSale
                             var itemCPC = new CowpokeChili();
                             var screenCPC = new CustomizeCowpokeChili();
                             AddItemAndOpenCustomizationScreen(itemCPC, screenCPC);
-                            //screen.DataContext = entree;
-                            //order.Add(new CowpokeChili());
-                            //orderControl.SwapScreen(screen);
                             break;
                         case "TrailBurger":
                              var itemTB = new TrailBurger();

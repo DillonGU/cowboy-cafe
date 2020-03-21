@@ -6,6 +6,9 @@ using System.Windows.Media;
 
 namespace CowboyCafe.Extensions
 {
+    /// <summary>
+    /// extension method class
+    /// </summary>
     public static class ExtensionMethods
     {
         /// <summary>

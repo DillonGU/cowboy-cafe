@@ -40,7 +40,10 @@ namespace PointOfSale
 
 
         }
-
+        /// <summary>
+        /// helper method that swaps the current screen with another one.
+        /// </summary>
+        /// <param name="element"> screen element</param>
         public void SwapScreen(UIElement element)
         {
             Container.Child = element;
@@ -48,12 +51,10 @@ namespace PointOfSale
 
 
         /// <summary>
-        /// executes a new cowpoke chili to the list
+        /// executes a new menu item selection and clears the list
         /// </summary>
         /// <param name="sender">?????????</param>
         /// <param name="e">??????????/</param>
-        
-
         void OnCancelOrderButtonClicked(object sender, RoutedEventArgs e)
         {
             
@@ -61,18 +62,28 @@ namespace PointOfSale
             Container.Child = new MenuItemSelectionControl();
 
         }
-
+        /// <summary>
+        /// executes a new menu item selection and clears the list
+        /// </summary>
+        /// <param name="sender">?????????</param>
+        /// <param name="e">??????????/</param>
         void OnOrderCompleteButtonClicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
             Container.Child = new MenuItemSelectionControl();
         }
-
+        /// <summary>
+        /// executes a new menu item selection 
+        /// </summary>
+        /// <param name="sender">?????????</param>
+        /// <param name="e">??????????/</param>
         void OnItemSelectionButtonClicked(object sender, RoutedEventArgs e)
         {
             Container.Child = new MenuItemSelectionControl();
         }
-
+        /// <summary>
+        /// helper method to notify the order
+        /// </summary>
         public void ItemChanged()
         {
             if(DataContext is Order order)

@@ -49,7 +49,10 @@ namespace CowboyCafe.Data
                 NotifyOfPropertyChange("Ice");
             }
         }
-
+        /// <summary>
+        /// a helper method that will notify the property change to the property from the user.
+        /// </summary>
+        /// <param name="propertyName">the property that is changed</param>
         protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

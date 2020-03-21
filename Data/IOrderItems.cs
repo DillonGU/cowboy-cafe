@@ -5,7 +5,7 @@ using System.Text;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// 
+    /// interface
     /// </summary>
     public interface IOrderItems
     {

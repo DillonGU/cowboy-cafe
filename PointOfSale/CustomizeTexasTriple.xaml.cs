@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Dillon Unruh
+* Class name: CustomizeTexasTriple.xaml Class
+* Purpose: Controls the commands of user input.
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,6 +23,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeTexasTriple : UserControl
     {
+        /// <summary>
+        /// constructor
+        /// </summary>
         public CustomizeTexasTriple()
         {
             InitializeComponent();

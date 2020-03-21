@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Dillon Unruh
+* Class name: CustomizeCowpokeChili.xaml Class
+* Purpose: Controls the commands of user input.
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,6 +23,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCowpokeChili : UserControl
     {
+        /// <summary>
+        /// constructor
+        /// </summary>
         public CustomizeCowpokeChili()
         {
             InitializeComponent();

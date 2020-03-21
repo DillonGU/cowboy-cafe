@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Dillon Unruh
+* Class name: CustomizeTexasTea.xaml Class
+* Purpose: Controls the commands of user input.
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -19,11 +24,18 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeTexasTea : UserControl
     {
+        /// <summary>
+        /// constructor
+        /// </summary>
         public CustomizeTexasTea()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// When the button is clicked it changes the properties of the selected item
+        /// </summary>
+        /// <param name="sender">???????</param>
+        /// <param name="e">?????????</param>
         private void ButtonClicked(object sender, EventArgs e)
         {
             var customize = this.FindAncestor<OrderControl>();
