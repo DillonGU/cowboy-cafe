@@ -29,10 +29,22 @@ namespace CowboyCafe.Data
         /// abstract list that hold the special instructions for the entrees.
         /// </summary>
         public abstract List<string> SpecialInstructions { get;}
+
+        private Size size = Size.Small;
         /// <summary>
         /// Size of type Size that will get and set the size of the drink
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public Size Size 
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Calories");
+                NotifyOfPropertyChange("Price");
+            }
+        } 
         /// <summary>
         /// a boolean property that gets and sets whether the customer wants ice.
         /// </summary>

@@ -17,23 +17,21 @@ namespace CowboyCafe.Data
     public abstract class Side : IOrderItems, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private Size size;
+        private Size size = Size.Small;
         /// <summary>
-        /// Gets the size of the entree
+        /// Size of type Size that will get and set the size of the side
         /// </summary>
-        public  Size Size
-        { 
-            get 
-            { 
-                return size; 
-            }
-            set 
+        public Size Size
+        {
+            get { return size; }
+            set
             {
                 size = value;
-                
-            } 
+                NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Calories");
+                NotifyOfPropertyChange("Price");
+            }
         }
-
         /// <summary>
         /// Gets the price of the side
         /// </summary>
@@ -48,12 +46,11 @@ namespace CowboyCafe.Data
         /// </summary>
         public List<string> SpecialInstructions { get; }
 
-       /* protected void NotifyOfPropertyChange(string propertyName)
+        protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            
 
-        }*/
+        }
     }
 }

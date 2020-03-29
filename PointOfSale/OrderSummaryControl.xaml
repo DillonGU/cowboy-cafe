@@ -25,11 +25,12 @@
             <Label FontSize="25">Order#</Label>
             <TextBlock Text="{Binding Path=OrderNumber}"/>
         </StackPanel>
-        <ListView Grid.Row="1" ItemsSource="{Binding Path=Items}">
-        <ListView.ItemTemplate>
+        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}" SelectionChanged="OnItemClick" >
+        <ListBox.ItemTemplate>
             <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
@@ -39,7 +40,8 @@
                         </Grid.RowDefinitions>
                         <TextBlock Text="{Binding}"/>
                         <TextBlock Grid.Column="1" Text="{Binding Path=Price, StringFormat=c}"/>
-                        <ListView Grid.ColumnSpan="2" Grid.Row="1" ItemsSource="{Binding Path=SpecialInstructions}"/>
+                        <Button Grid.Column="2" Height="20" FontSize="12" Background="Red" Click="RemoveItem" VerticalContentAlignment="Top">X</Button>
+                        <ListBox Grid.ColumnSpan="2" Grid.Row="1" ItemsSource="{Binding Path=SpecialInstructions}"/>
                     </Grid>
                     
                 
@@ -49,8 +51,8 @@
 
 
                 </DataTemplate>
-        </ListView.ItemTemplate>
-        </ListView>
+        </ListBox.ItemTemplate>
+        </ListBox>
         
         <StackPanel Grid.Row="2">
             <Label FontSize="15">Subtotal</Label>
