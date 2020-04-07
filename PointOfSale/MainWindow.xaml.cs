@@ -17,6 +17,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Extensions;
+using CowboyCafe.Data;
 
 namespace PointOfSale
 {
@@ -31,6 +33,15 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// helper method that swaps the current screen with another one.
+        /// </summary>
+        /// <param name="element"> screen element</param>
+        public void ScreenSwap(UIElement element)
+        {
+            Contain.Child = element;
         }
     }
 }

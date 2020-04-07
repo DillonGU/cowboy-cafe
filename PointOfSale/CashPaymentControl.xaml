@@ -1,12 +1,16 @@
-﻿<Window x:Class="PointOfSale.MainWindow"
+﻿<UserControl x:Class="PointOfSale.CashPaymentControl"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="Cowboy Cafe" Height="600" Width="1080" HorizontalAlignment="Center">
-    <Border Name="Contain">
-        <local:OrderControl></local:OrderControl>
-    </Border>
-</Window>
+        Height="450" Width="810">
+    <Grid>
+        <local:CashRegisterControl>
+            <local:CashRegisterControl.DataContext>
+                <local:CashRegisterModelView/>
+            </local:CashRegisterControl.DataContext>
+        </local:CashRegisterControl>
+    </Grid>
+</UserControl>

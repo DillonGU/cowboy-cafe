@@ -38,6 +38,16 @@ namespace CowboyCafe.Data
             }  
         }
 
+        public double Total
+        {
+            get
+            {
+                double total = 0; //Math.Round(orders.Total * 100f) / 100f
+                total = Math.Round(((Subtotal * 0.16) + Subtotal)* 100f) /100;
+                return total;
+            }
+        }
+
         
         private static uint number = 0;
         /// <summary>

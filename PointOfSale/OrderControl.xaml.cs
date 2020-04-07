@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -69,8 +70,16 @@ namespace PointOfSale
         /// <param name="e">??????????/</param>
         void OnOrderCompleteButtonClicked(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Order();
-            Container.Child = new MenuItemSelectionControl();
+            
+            //var screen = new WindowTransactionControl();
+            //screen.DataContext = this.DataContext;
+            //screen.Show();
+            //this.DataContext = new Order();
+            var main = this.FindAncestor<MainWindow>();
+            if (main == null) return;
+            main.ScreenSwap(new TransactionControl(this.DataContext as Order));
+            //Container.Child = new MenuItemSelectionControl();
+
         }
         /// <summary>
         /// executes a new menu item selection 

@@ -1,0 +1,182 @@
+﻿<UserControl x:Class="PointOfSale.CashRegisterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1000">
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=" 100"/>
+            <ColumnDefinition Width="100"/>
+
+
+
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0">
+                    <Label>Pennies</Label>
+                    <TextBox Name="Pennies" >0</TextBox>
+
+
+                    <Label>Nickels</Label>
+                    <TextBox Name="Nickels">0</TextBox>
+
+
+                    <Label>Dimes</Label>
+                    <TextBox Name="Dimes">0</TextBox>
+
+
+                    <Label>Quarters</Label>
+                    <TextBox Name="Quarters">0</TextBox>
+
+
+                    <Label>Half Dollars</Label>
+                    <TextBox Name="HalfDollar">0</TextBox>
+
+
+                    <Label>Dollar</Label>
+                    <TextBox Name="Dollars">0</TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="1">
+                    <Label>Ones</Label>
+                    <TextBox Name="Ones">0</TextBox>
+               
+               
+                    <Label>Twos</Label>
+                    <TextBox Name="Twos">0</TextBox>
+                
+                
+                    <Label>Fives</Label>
+                    <TextBox Name="Fives">0</TextBox>
+                
+                
+                    <Label>Tens</Label>
+                    <TextBox Name="Tens">0</TextBox>
+                
+                
+                    <Label>Twenties</Label>
+                    <TextBox Name="Twenties">0</TextBox>
+                
+                
+                    <Label>Fifties</Label>
+                    <TextBox Name="Fifties">0</TextBox>
+                
+                
+                    <Label>Hundreds</Label>
+                    <TextBox Name="Hundreds">0</TextBox>
+                
+                
+                    <Button Name="Pay" Click="PayAmount">Pay</Button>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="2">
+                    <Label>Pennies</Label>
+                    <TextBox Name="PenniesC" >0</TextBox>
+
+
+                    <Label>Nickels</Label>
+                    <TextBox Name="NickelsC">0</TextBox>
+
+
+                    <Label>Dimes</Label>
+                    <TextBox Name="DimesC">0</TextBox>
+
+
+                    <Label>Quarters</Label>
+                    <TextBox Name="QuartersC">0</TextBox>
+
+
+                    <Label>Half Dollars</Label>
+                    <TextBox Name="HalfDollarC">0</TextBox>
+
+
+                    <Label>Dollar</Label>
+                    <TextBox Name="DollarsC">0</TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="3">
+                    <Label>Ones</Label>
+                    <TextBox Name="OnesC">0</TextBox>
+
+
+                    <Label>Twos</Label>
+                    <TextBox Name="TwosC">0</TextBox>
+
+
+                    <Label>Fives</Label>
+                    <TextBox Name="FivesC">0</TextBox>
+
+
+                    <Label>Tens</Label>
+                    <TextBox Name="TensC">0</TextBox>
+
+
+                    <Label>Twenties</Label>
+                    <TextBox Name="TwentiesC">0</TextBox>
+
+
+                    <Label>Fifties</Label>
+                    <TextBox Name="FiftiesC">0</TextBox>
+
+
+                    <Label>Hundreds</Label>
+                    <TextBox Name="HundredsC">0</TextBox>
+
+                </StackPanel>
+
+
+
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" Grid.Column="2">
+            <local:CoinControl Height="100" Width="100" x:Name="PennyCtrl" Denomination="Penny" Quantity="{Binding Path=Pennies}"/>
+            <local:CoinControl Height="100" Width="100" x:Name="DimeCtrl" Denomination="Dime" Quantity="{Binding Path=Dimes}"/>
+            <local:CoinControl Height="100" Width="100" x:Name="NickelCtrl" Denomination="Nickel" Quantity="{Binding Path=Nickels}"/>
+            <local:CoinControl Height="100" Width="100" x:Name="QarterCtrl" Denomination="Quarter" Quantity="{Binding Path=Quarters}"/>
+            <local:CoinControl Height="100" Width="100" x:Name="HDollarCtrl" Denomination="HalfDollar" Quantity="{Binding Path=HalfDollar}"/>
+            <local:CoinControl Height="100" Width="100" x:Name="DollarCtrl" Denomination="Dollar" Quantity="{Binding Path=Dollar}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Grid.Column="2">
+            <local:BillControl Height="100" Width="100" x:Name="OneCtrl" Denomination="One" Quantity="{Binding Path=Ones}"/>
+            <local:BillControl Height="100" Width="100" x:Name="TwoCtrl" Denomination="Two" Quantity="{Binding Path=Twos}"/>
+            <local:BillControl Height="100" Width="100" x:Name="FiveCtrl" Denomination="Five" Quantity="{Binding Path=Fives}"/>
+            <local:BillControl Height="100" Width="100" x:Name="TenCtrl" Denomination="Ten" Quantity="{Binding Path=Tens}"/>
+            <local:BillControl Height="100" Width="100" x:Name="TwentyCtrl" Denomination="Twenty" Quantity="{Binding Path=Twenty}"/>
+            <local:BillControl Height="100" Width="100" x:Name="FiftyCtrl" Denomination="Fifty" Quantity="{Binding Path=Fifty}"/>
+            <local:BillControl Height="100" Width="100" x:Name="HundredCtrl" Denomination="Hundred" Quantity="{Binding Path=Hundred}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
