@@ -1,0 +1,89 @@
+﻿@page
+@using CowboyCafe.Data
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+    //throw new Exception("Testing...");
+}
+    
+        <h1>Welcome to Cowboy Cafe</h1>
+        <p>
+            We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
+            Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
+            Dip your Pan de Campo into a bowl of beans.
+            Or conquer the the mighty Texas Triple Burger!
+            You’ve had a hard ride - so take it easy with us.
+        </p>
+
+
+
+        <h2>Entrees</h2>
+
+
+
+        @foreach (IOrderItems items in Menu.Entrees())
+        {
+            <div class="menu-item">
+                <p>
+                    @items.ToString()
+                    <br />
+                    $@items.Price.ToString()
+                    <br />
+                    Calories: @items.Calories.ToString()
+                </p>
+            </div>
+        }
+        <div class="sides">
+            <h2>Sides</h2>
+
+            @foreach (CowboyCafe.Data.Side items in Menu.Sides())
+            {
+                @foreach (CowboyCafe.Data.Size size in Enum.GetValues(typeof(CowboyCafe.Data.Size)))
+                {
+                    CowboyCafe.Data.Menu.SideSize(items, size);
+                    <div class="menu-item">
+                        <p>
+                            @items.ToString()
+                            <br />
+                            $@items.Price.ToString()
+                            <br />
+                            Calories: @items.Calories.ToString()
+                            <br />
+
+                        </p>
+                    </div>
+
+
+                }
+
+            }
+        </div>
+
+        <div class="drinks">
+            <h2>Drinks</h2>
+
+            @foreach (CowboyCafe.Data.Drink items in Menu.Drinks())
+            {
+                @foreach (CowboyCafe.Data.Size size in Enum.GetValues(typeof(CowboyCafe.Data.Size)))
+                {
+                    CowboyCafe.Data.Menu.DrinkSize(items, size);
+                    <div class="menu-item">
+                        <p>
+                            @items.ToString()
+                            <br />
+                            $@items.Price.ToString()
+                            <br />
+                            Calories: @items.Calories.ToString()
+                            <br />
+
+                        </p>
+                    </div>
+
+
+                }
+
+            }
+
+        </div>
+    </div>
+    
