@@ -26,6 +26,7 @@ a {
 
 
 
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -63,14 +64,25 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    /*styles to make it catch the eye*/
+    background-image: url(../Images/water-sunset-horse-cowboy.jpg);
+    background-size: 100%;
+    background-repeat: repeat-y;
+    /*/margin: 0;*/
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+   /*text-shadow: 0px 1px 1px black;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    
 }
+
+
 
 /* centering 
     ------------------------------------------------------*/
@@ -80,6 +92,18 @@ body {
     margin-right: auto;
     width: 50%;
 }
+
+.flex-columns {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 490px) {
+    .flex-columns {
+        flex-direction: column;
+    }
+}
+
 
 
 

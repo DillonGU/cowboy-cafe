@@ -9,8 +9,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.IO;
-
-
+using System.Runtime.CompilerServices;
 
 namespace CowboyCafe.Data
 {
@@ -65,16 +64,43 @@ namespace CowboyCafe.Data
         {
             get
             {
-                var beans = new BakedBeans();
-                var dodgers = new CornDodgers();
-                var fries = new ChiliCheeseFries();
-                var campo = new PanDeCampo();
                 List<IOrderItems> sides = new List<IOrderItems>();
-                sides.Add(beans);
-                sides.Add(dodgers);
-                sides.Add(fries);
-                sides.Add(campo);
+                foreach (Size s in Enum.GetValues(typeof(Size)))
+                {
+                    var beans = new BakedBeans();
+                    beans.Size = s;
+                    sides.Add(beans);
+                }
+
+                foreach (Size s in Enum.GetValues(typeof(Size)))
+                {
+                    var dodgers = new CornDodgers();
+                    dodgers.Size = s;
+                    sides.Add(dodgers);
+                }
+                foreach (Size s in Enum.GetValues(typeof(Size)))
+                {
+                    var fries = new ChiliCheeseFries();
+                    fries.Size = s;
+                    sides.Add(fries);
+                }
+                foreach (Size s in Enum.GetValues(typeof(Size)))
+                {
+                    var campo = new PanDeCampo();
+                    campo.Size = s;
+                    sides.Add(campo);
+                }
                 return sides;
+                // var beans = new BakedBeans();
+                //var dodgers = new CornDodgers();
+                //var fries = new ChiliCheeseFries();
+                //var campo = new PanDeCampo();
+
+                //sides.Add(beans);
+                //sides.Add(dodgers);
+                //sides.Add(fries);
+                //sides.Add(campo);
+
             }
         }
         /// <summary>
@@ -85,7 +111,38 @@ namespace CowboyCafe.Data
         {
             get
             {
-                var soda = new JerkedSoda();
+                List<IOrderItems> drinks = new List<IOrderItems>();
+                foreach (Size s in Enum.GetValues(typeof(Size)))
+                {
+                    var soda = new JerkedSoda();
+                    soda.Size = s;
+                    drinks.Add(soda);
+                }
+
+                foreach (Size s in Enum.GetValues(typeof(Size)))
+                {
+                    var tea = new TexasTea();
+                    tea.Size = s;
+                    drinks.Add(tea);
+                }
+                foreach (Size s in Enum.GetValues(typeof(Size)))
+                {
+                    var coffee = new CowboyCoffee();
+                    coffee.Size = s;
+                    drinks.Add(coffee);
+                }
+                foreach (Size s in Enum.GetValues(typeof(Size)))
+                {
+                    var water = new Water();
+                    water.Size = s;
+                    drinks.Add(water);
+                }
+                return drinks;
+
+
+
+
+                /*var soda = new JerkedSoda();
                 var tea = new TexasTea();
                 var coffee = new CowboyCoffee();
                 var water = new Water();
@@ -94,7 +151,7 @@ namespace CowboyCafe.Data
                 drinks.Add(tea);
                 drinks.Add(coffee);
                 drinks.Add(water);
-                return drinks;
+                return drinks;*/
             }
         }
         /// <summary>
@@ -150,21 +207,23 @@ namespace CowboyCafe.Data
         /// <param name="items">list of items</param>
         /// <param name="term">inputted string</param>
         /// <returns></returns>
-        public static IEnumerable<IOrderItems> Search(IEnumerable<IOrderItems> items, string term)
-        {
-            List<IOrderItems> results = new List<IOrderItems>();
+       // public static IEnumerable<IOrderItems> Search(IEnumerable<IOrderItems> items, string term)
+       // {
+           // List<IOrderItems> results = new List<IOrderItems>();
             // Return all movies if there are no search terms
-            if (term == null || term == "") return items;
+        //    if (term == null || term == "") return items;
+
+        //    return items.Where(i => i.ToString().Contains(term, StringComparison.InvariantCultureIgnoreCase));
             // return each movie in the database containing the terms substring
-            foreach (IOrderItems item in items)
+           /* foreach (IOrderItems item in items)
             {
                 if (item != null && item.ToString().Contains(term, StringComparison.InvariantCultureIgnoreCase))
                 {
                     results.Add(item);
                 }
             }
-            return results;
-        }
+            return results;*/
+      //  }
         /// <summary>
         /// filters the search by categories
         /// </summary>
@@ -176,11 +235,66 @@ namespace CowboyCafe.Data
             // If no filter is specified, just return the provided collection
             if (category == null || category.Count() == 0) return items;
             // Filter the supplied collection of movies
-            List<IOrderItems> results = new List<IOrderItems>();
-            foreach (IOrderItems item in items)
+            //List<IOrderItems> results = new List<IOrderItems>();
+            var ret = items;
+            if (category.Contains("Entree"))
+            {
+                //ret = items.Where(i => category.Contains("Entree") && i is Entree);
+                var entree = items.OfType<Entree>();
+                ret = entree;
+            }
+            if (category.Contains("Side"))
+            {
+                //ret = items.Where(i => category.Contains("Side") && i is Side);
+                var side = items.OfType<Side>();
+                ret = side;
+            }
+            if (category.Contains("Drink"))
+            {
+                //ret = items.Where(i => category.Contains("Drink") && i is Drink);
+                var drink = items.OfType<Drink>();
+                ret = drink;
+            }
+            if (category.Contains("Entree") && category.Contains("Side")) 
+                ret = items.Where(i => category.Contains("Entree") && 
+                (i is Entree || i is Side)).Where(i => category.Contains("Side") && 
+                (i is Side || i is Entree));
+
+            if (category.Contains("Entree") && category.Contains("Drink"))
+                ret = items.Where(i => category.Contains("Entree") && 
+                (i is Entree || i is Drink)).Where(i => category.Contains("Drink") && 
+                (i is Drink || i is Entree));
+
+            if (category.Contains("Side") && category.Contains("Drink"))
+                ret = items.Where(i => category.Contains("Side") && 
+                (i is Side || i is Drink)).Where(i => category.Contains("Drink") && 
+                (i is Drink || i is Side));
+
+            if (category.Contains("Side") && category.Contains("Drink") && category.Contains("Entree"))
+                ret = items.Where(i => category.Contains("Side")).Where(i => category.Contains("Drink")).Where(i => category.Contains("Entree"));
+            return ret;
+
+            /* if (category.Contains("Side"))
+                 ret = items.Where(i => category.Contains("Side") && i is Side);
+
+             if (category.Contains("Drink"))
+                 ret = items.Where(i => category.Contains("Drink") && i is Drink);*/
+
+            /*if (item != null && item is Side && category.Contains("Side"))
+            {
+                return items.Where(i => category.Contains(i.ToString()));
+            }
+            if (item != null && item is Drink && category.Contains("Drink"))
+            {
+                return items.Where(i => category.Contains(i.ToString()));
+            }*/
+
+
+            /*foreach (IOrderItems item in items)
             {
                 if (item != null && item is Entree && category.Contains("Entree"))
                 {
+
                     results.Add(item);
                 }
                 if (item != null && item is Side && category.Contains("Side"))
@@ -191,8 +305,8 @@ namespace CowboyCafe.Data
                 {
                     results.Add(item);
                 }
-            }
-            return results;
+            }*/
+
         }
         /// <summary>
         /// filters the search by calories
@@ -201,38 +315,41 @@ namespace CowboyCafe.Data
         /// <param name="max">max cal</param>
         /// <param name="min">min cal</param>
         /// <returns></returns>
-        public static IEnumerable<IOrderItems> FilterByCalories(IEnumerable<IOrderItems> items, int? max, int? min)
-        {
-            var results = new List<IOrderItems>();
-            if (max == null && min == null) return items;
-            // only a maximum specified
-            if (min == null)
-            {
-                foreach (IOrderItems item in items)
+      //  public static IEnumerable<IOrderItems> FilterByCalories(IEnumerable<IOrderItems> items, int? max, int? min)
+      //  {
+        //    var results = new List<IOrderItems>();
+            // if (max == null && min == null) return items;
+           // only a maximum specified
+       //     if (min == null)
+      //      {
+      //          min = 0;
+      //      }
+
+                //return items.Where(i => i.Calories <=max);
+                
+                    
+
+                //return results;
+               /* foreach (IOrderItems item in items)
                 {
                     if (item.Calories <= max) results.Add(item);
                 }
-                return results;
-            }
+                return results;*/
+            
             // only a minimum specified 
-            if (max == null)
-            {
-                foreach (IOrderItems item in items)
-                {
-                    if (item.Calories >= min) results.Add(item);
-                }
-                return results;
-            }
+       //      if (max == null)
+       //     {
+      //          max = int.MaxValue;
+       //     }
+                //return items.Where(i => i.Calories >= min);
+            
+            
             // Both minimum and maximum specified
-            foreach (IOrderItems item in items)
-            {
-                if (item.Calories >= min && item.Calories <= max)
-                {
-                    results.Add(item);
-                }
-            }
-            return results;
-        }
+            
+       //         return items.Where(i => i.Calories <= max && i.Calories >= min);
+
+            
+      //  }
         /// <summary>
         /// filters search by price
         /// </summary>
@@ -240,38 +357,41 @@ namespace CowboyCafe.Data
         /// <param name="max">max price</param>
         /// <param name="min">min price</param>
         /// <returns></returns>
-        public static IEnumerable<IOrderItems> FilterByPrice(IEnumerable<IOrderItems> items, double? max, double? min)
-        {
-            var results = new List<IOrderItems>();
-            if (max == null && min == null) return items;
+    //    public static IEnumerable<IOrderItems> FilterByPrice(IEnumerable<IOrderItems> items, double? max, double? min)
+    //    {
+    //        var results = new List<IOrderItems>();
+            //if (max == null && min == null) return items;
             // only a maximum specified
-            if (min == null)
-            {
-                foreach (IOrderItems item in items)
+     //       if (min == null)
+      //      {
+    //            min = 0;
+                /*foreach (IOrderItems item in items)
                 {
                     if (item.Price <= max) results.Add(item);
                 }
-                return results;
-            }
+                return results;*/
+      //      }
             // only a minimum specified 
-            if (max == null)
-            {
-                foreach (IOrderItems item in items)
+    //        if (max == null)
+     //       {
+     //           max = double.MaxValue;
+                /*foreach (IOrderItems item in items)
                 {
                     if (item.Price >= min) results.Add(item);
                 }
-                return results;
-            }
+                return results;*/
+     //       }
             // Both minimum and maximum specified
-            foreach (IOrderItems item in items)
+     //       return items.Where(i => i.Price <= max && i.Price >= min);
+            /*foreach (IOrderItems item in items)
             {
                 if (item.Price >= min && item.Price <= max)
                 {
                     results.Add(item);
                 }
             }
-            return results;
-        }
+            return results;*/
+      // }
 
 
     }
